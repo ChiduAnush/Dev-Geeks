@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  UpcomingViewController.swift
 //  Netflix-clone
 //
 //  Created by Chidu Anush on 20/06/23.
@@ -7,13 +7,14 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class UpcomingViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+
+        view.backgroundColor = .green
     }
+    
 
 
 }
-
