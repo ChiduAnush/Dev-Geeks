@@ -21,6 +21,10 @@ class HomeViewController: UIViewController {
         
         view.backgroundColor = .systemBackground
         view.addSubview(homeFeedTable)
+        
+        
+        homeFeedTable.delegate = self
+        homeFeedTable.dataSource = self
     }
     
     override func viewDidLayoutSubviews() {
@@ -28,6 +32,26 @@ class HomeViewController: UIViewController {
         homeFeedTable.frame = view.bounds  //will cover whole bounds of our screen
     }
 
+}
 
-
+extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 20
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        cell.textLabel?.text = "hello world"
+        cell.backgroundColor = .systemCyan
+        return cell
+        
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 200
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 40
+    }
 }
