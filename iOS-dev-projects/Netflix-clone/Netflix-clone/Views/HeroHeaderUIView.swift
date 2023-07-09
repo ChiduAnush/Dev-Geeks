@@ -9,6 +9,29 @@ import UIKit
 
 class HeroHeaderUIView: UIView {
     
+    
+    private let downloadButton: UIButton = {
+        
+        let button = UIButton()
+        button.setTitle("Download", for: .normal)
+        button.layer.borderColor = UIColor.white.cgColor
+        button.layer.borderWidth = 1
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+        
+    }()
+    
+    
+    private let playButton: UIButton = {
+        
+        let button = UIButton()
+        button.setTitle("Play", for: .normal)
+        button.layer.borderColor = UIColor.white.cgColor
+        button.layer.borderWidth = 1
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
     private let heroImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
@@ -33,6 +56,29 @@ class HeroHeaderUIView: UIView {
         super.init(frame: frame)
         addSubview(heroImageView)
         addGradient()
+        addSubview(playButton)
+        addSubview(downloadButton)
+        applyConstraints()
+    }
+    
+    private func applyConstraints() {
+        
+        let playButtonConstrains = [
+            playButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 25),
+            playButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -20),
+            playButton.widthAnchor.constraint(equalToConstant: 100)
+        ]
+        
+        let downloadButtonConstrains = [
+            downloadButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 135),
+            downloadButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -20),
+            downloadButton.widthAnchor.constraint(equalToConstant: 100)
+        ]
+        
+        NSLayoutConstraint.activate(playButtonConstrains)
+        NSLayoutConstraint.activate(downloadButtonConstrains)
+
+        
     }
     
     
